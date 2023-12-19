@@ -11,10 +11,10 @@ UR1GameInstance::UR1GameInstance(const FObjectInitializer& ObjectInitializer)
 
 void UR1GameInstance::Init()
 {
-	Super(Init);
+	Super::Init();
 }
 
 void UR1GameInstance::Shutdown()
 {
-	Super(Shutdown);
+	Super::Shutdown();
 }

@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "R1Character.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class R1_API AR1Character : public ACharacter
 {
@@ -27,16 +30,10 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
-	//UPROPERTY(Category = Character, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	//Camera,SpringArm 조정
+	UPROPERTY(EditAnywhere, Category=Character)
+	TObjectPtr<USpringArmComponent> SpringArm;
 
-	UPROPERTY(EditAnywhere, Category = R1)
-	int32 Hp = 100;
-	
-	UPROPERTY(EditAnywhere, Category = R1)
-	float Speed = 3.5f;
-
-	UPROPERTY(EditAnywhere, Category = R1)
-	FString Name = TEXT("Yeonoc");
-
-
+	UPROPERTY(EditAnywhere, Category = Character)
+	TObjectPtr<UCameraComponent> Camera;
 };

@@ -36,4 +36,14 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Character)
 	TObjectPtr<UCameraComponent> Camera;
+
+private:
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputMappingContext> InputMappingContext;
+
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputAction> MoveAction;
+
+	UPROPERTY(EditAnywhere, Category = Input)
+	TObjectPtr<class UInputAction> TurnAction;
 };

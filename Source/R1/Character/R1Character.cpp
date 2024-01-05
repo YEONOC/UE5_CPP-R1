@@ -4,6 +4,10 @@
 #include "Character/R1Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedSubSystem.h"
+#include "InputMappingContext.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AR1Character::AR1Character()
@@ -20,9 +24,10 @@ AR1Character::AR1Character()
 	SpringArm->SetRelativeRotation(FRotator(-30, 0, 0));
 	SpringArm->TargetArmLength = 700;
 
-	ConstructorHelpers::FObjectFinder<USkeletalMesh> MeshResource(TEXT("/Script/Engine.SkeletalMesh'/Game/ParagonGreystone/Characters/Heroes/Greystone/Meshes/Greystone.Greystone'"));
-
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0, 0, -88), FRotator(0, -90, 0));
+
+	ConstructorHelpers::FObjectFinder<USkeletalMesh> MeshResource(TEXT("/Script/Engine.SkeletalMesh'/Game/ParagonGreystone/Characters/Heroes/Greystone/Meshes/Greystone.Greystone'")); // 경로가 바뀔경우 문제가 생길 수 있음
+	
 	if (MeshResource.Succeeded())
 	{
 		GetMesh()->SetSkeletalMesh(MeshResource.Object);
